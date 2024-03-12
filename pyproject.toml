@@ -30,13 +30,13 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8.1"
 typing_extensions = { version = "^4.0", python = "<3.9" }
-seaborn = "^0.12"
+matplotlib = "^3.0"
 corgy = "^9.2"
 
 [tool.poetry.extras]
 
 [tool.poetry.dev-dependencies]
-pre-commit = "^2.0"
+pre-commit = "^3.2"
 black = "^22.0"
 isort = "^5.1"
 pylint = "^2.14"
@@ -47,7 +47,7 @@ sphinx = "^5.3"
 sphinx-markdown-builder = { git = "https://github.com/clayrisser/sphinx-markdown-builder" }
 mkdocstrings = { extras = ["python-legacy"], version = "^0.22.0" }
 mkdocs-material = "^9.1.15"
-mike = "^1.1.2"
+mike = { git = "https://github.com/jimporter/mike" }
 
 [tool.poetry-dynamic-versioning]
 enable = true
