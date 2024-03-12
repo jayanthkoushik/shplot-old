@@ -1,4 +1,4 @@
-name: Run project tests
+name: Run tests
 
 on:
   push:
@@ -30,5 +30,3 @@ jobs:
       run: poetry install --only main --all-extras
     - name: Run tests
       run: poetry run python -m unittest -v
-      env:
-        PYTHONDEVMODE: 1

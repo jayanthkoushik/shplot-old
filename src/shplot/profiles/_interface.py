@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import contextlib
 import sys
 from abc import ABC
 from contextlib import contextmanager
@@ -20,6 +21,7 @@ __all__ = [
     "ProfileBase",
     "ColorProfile",
     "FontProfile",
+    "FloatOrStr",
     "PlotScaleProfile",
     "AxesProfile",
     "PlottingProfile",
@@ -116,7 +118,7 @@ class ProfileBase(Corgy, corgy_make_slots=False):
             self._restore_rc(reload_mpl, current_rc)
 
     def _restore_rc(self, reload_mpl: bool = True, rc: Optional[Dict[str, Any]] = None):
-        global mpl, plt  # pylint: disable=global-statement
+        global mpl, plt  # noqa
         if reload_mpl:
             mpl = reload(mpl)
             plt = reload(plt)
@@ -273,16 +275,18 @@ class FontProfile(ProfileBase):
         return rc_dict
 
 
+class FloatOrStr(ABC):
+    """Float or string type."""
+
+    __metavar__ = "float|str"
+
+
+FloatOrStr.register(float)
+FloatOrStr.register(str)
+
+
 class PlotScaleProfile(ProfileBase):
     """Wrapper for plot scale-related matplotlib params."""
-
-    class FloatOrStr(ABC):
-        """Float or string type."""
-
-        __metavar__ = "float|str"
-
-    FloatOrStr.register(float)
-    FloatOrStr.register(str)
 
     font_size: float
     axes_title_size: FloatOrStr
@@ -343,10 +347,8 @@ class PlotScaleProfile(ProfileBase):
     @corgyparser("figure_label_size")
     @staticmethod
     def _parse_float_or_str(val):
-        try:
+        with contextlib.suppress(ValueError):
             val = float(val)
-        except ValueError:
-            pass
         PlotScaleProfile._check_maybe_relative_size(val)
         return val
 
@@ -599,10 +601,8 @@ class PlottingProfile(ProfileBase):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         for attr in self.attrs():
-            try:
+            with contextlib.suppress(KeyError):
                 del kwargs[attr]
-            except KeyError:
-                pass
         self._rc_extra = kwargs
 
     def _rc(self) -> Dict[str, Any]:

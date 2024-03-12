@@ -5,7 +5,6 @@ repos:
   - id: check-case-conflict
   - id: check-symlinks
   - id: destroyed-symlinks
-  - id: fix-byte-order-marker
   - id: end-of-file-fixer
   - id: mixed-line-ending
   - id: trailing-whitespace
@@ -23,62 +22,47 @@ repos:
 
 - repo: local
   hooks:
-  - id: black
-    name: format python files
-    entry: poetry run black
+  - id: format
+    name: Format Python files
     language: system
-    types_or: [python, jupyter]
-  - id: isort
-    name: sort python imports
-    entry: poetry run isort
-    language: system
+    entry: poetry run ruff format
     types: [python]
-  - id: pylint
-    name: lint python files
-    entry: poetry run pylint
+  - id: lint
+    name: Lint Python files
     language: system
+    entry: poetry run ruff check
     types: [python]
-  - id: flake8
-    name: style check python files
-    entry: poetry run flake8
-    language: system
-    types: [python]
+    pass_filenames: false
   - id: mypy
-    name: type check python files
+    name: Type check Python files
     entry: poetry run mypy .
     language: system
     types: [python]
     pass_filenames: false
-  - id: pydocstyle
-    name: lint python docstrings
-    entry: poetry run pydocstyle
-    language: system
-    types: [python]
   - id: test
-    name: run unittests
+    name: Run unit tests
     language: system
     entry: poetry run python -m unittest
     types: [python]
     pass_filenames: false
   - id: docs
-    name: build docs with sphinx
+    name: Build docs with Sphinx
     entry: poetry run docs/make.sh
     language: system
-    files: ".*\\.py|docs/make\\.sh"
-    exclude: "tests/.*\\.py"
+    files: "src/.*\\.py|docs/make\\.sh"
     pass_filenames: false
   - id: cspell
-    name: spell check docs
+    name: Spell check docs
     language: system
-    files: "docs/.*\\.md"
     entry: npx cspell
+    files: "docs/.*\\.md"
   - id: nbstrip
-    name: remove metadata from notebooks
+    name: Remove metadata from notebooks
     entry: poetry run jupyter nbconvert --inplace --ClearMetadataPreprocessor.enabled=True
     language: system
     types: [jupyter]
   - id: commitlint
-    name: lint commit message
+    name: Lint commit message
     language: system
     entry: npx commitlint -e
     always_run: true

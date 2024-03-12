@@ -178,35 +178,35 @@ Wrapper for font-related matplotlib params.
 Whether to set `pgf.preamble` using `latex_preamble`.
 
 
+### _class_ shplot.profiles.FloatOrStr()
+Bases: `ABC`
+
+Float or string type.
+
+
 ### _class_ shplot.profiles.PlotScaleProfile(\*\*args)
 Bases: [`ProfileBase`](#shplot.profiles.ProfileBase)
 
 Wrapper for plot scale-related matplotlib params.
 
 
-#### _class_ FloatOrStr()
-Bases: `ABC`
-
-Float or string type.
-
-
 #### _property_ font_size(_: float_ )
 
-#### _property_ axes_title_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ axes_title_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ axes_label_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ axes_label_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ xtick_label_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ xtick_label_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ ytick_label_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ ytick_label_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ legend_font_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ legend_font_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ legend_title_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ legend_title_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ figure_title_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ figure_title_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
-#### _property_ figure_label_size(_: [FloatOrStr](#shplot.profiles.PlotScaleProfile.FloatOrStr)_ )
+#### _property_ figure_label_size(_: [FloatOrStr](#shplot.profiles.FloatOrStr)_ )
 
 #### _property_ marker_size(_: float_ )
 

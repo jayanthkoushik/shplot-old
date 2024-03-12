@@ -1,4 +1,4 @@
-# shplot-old
+# shplot
 
 
 * [shplot package](shplot.md)

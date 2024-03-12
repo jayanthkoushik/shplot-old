@@ -80,9 +80,10 @@ class ShPlot(Corgy):
     __slots__ = ("_fig", "_ax", "_profile", "_profile_ctx")
 
     def __init__(self, **kwargs):
-        if "profile_args" in kwargs:
-            if not isinstance(kwargs["profile_args"], KeyValuePairs):
-                kwargs["profile_args"] = KeyValuePairs(kwargs["profile_args"])
+        if "profile_args" in kwargs and not isinstance(
+            kwargs["profile_args"], KeyValuePairs
+        ):
+            kwargs["profile_args"] = KeyValuePairs(kwargs["profile_args"])
         super().__init__(**kwargs)
         self._fig = None
         self._ax = None
@@ -116,10 +117,7 @@ class ShPlot(Corgy):
 
         plot_width: float
         try:
-            if self.width > 1:
-                plot_width = self.width
-            else:
-                plot_width = cfg_width * self.width
+            plot_width = self.width if self.width > 1 else cfg_width * self.width
         except AttributeError:
             plot_width = cfg_width
 
