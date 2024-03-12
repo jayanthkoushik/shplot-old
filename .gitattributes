@@ -3,7 +3,8 @@
 .commitlintrc.yaml          export-ignore
 .editorconfig               export-ignore
 .cspell.json                export-ignore
+.python-version             export-ignore
 release.sh                  export-ignore
 docs/make.sh                export-ignore
-tox.ini                     export-ignore
+
 demos                       export-ignore

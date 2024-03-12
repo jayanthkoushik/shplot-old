@@ -1,22 +1,22 @@
 [tool.poetry]
 name = "shplot"
 version = "0.0.0"  # managed by `poetry-dynamic-versioning`
-description = "Wrapper for Matplotlib/Seaborn"
+description = "Wrapper for Matplotlib"
 authors = ["Jayanth Koushik <mail@jkoushik.me>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/jayanthkoushik/shplot-old"
 packages = [
-  { include = "shplot" },
+  { include = "shplot", from = "src" },
 ]
 include = [
   { path = "tests", format = "sdist" },
   { path = "docs", format = "sdist" },
+  { path = "www", format = "sdist" },
   { path = "CHANGELOG.md", format = "sdist" },
 ]
 exclude = [
   "docs/make.sh",
-  "www"
 ]
 
 # keywords = [
@@ -37,12 +37,8 @@ corgy = "^9.2"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^3.2"
-black = "^22.0"
-isort = "^5.1"
-pylint = "^2.14"
+ruff = "^0.3.2"
 mypy = "^1.1"
-pydocstyle = "^6.1"
-flake8 = "^7.0"
 sphinx = "^5.3"
 sphinx-markdown-builder = { git = "https://github.com/clayrisser/sphinx-markdown-builder" }
 mkdocstrings = { extras = ["python-legacy"], version = "^0.22.0" }
@@ -57,53 +53,57 @@ style = "semver"
 [tool.poetry-dynamic-versioning.substitution]
 files = ["*/_version.py"]
 
-[tool.black]
-line_length = 88
-skip_magic_trailing_comma = true
+[tool.ruff.format]
+skip-magic-trailing-comma = true
 
-[tool.isort]
-profile = "black"
-line_length = 88
-combine_as_imports = true
-force_alphabetical_sort_within_sections = true
+[tool.ruff.lint]
+select = [
+  "F",
+  "E4",
+  "E7",
+  "E9",
+  "W",
+  "I",
+  "N",
+  "D2",
+  "D3",
+  "D4",
+  "ANN0",
+  "ANN2",
+  "ANN4",
+  "B",
+  "A",
+  "G",
+  "SIM",
+  #"TCH",
+  "PLC",
+  "PLE",
+  "PLW",
+  "RUF",
+]
+ignore-init-module-imports = true
 
-[tool.pylint.FORMAT]
-max-line-length = 88
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403", "F405"]
 
-[tool.pylint.'MESSAGES CONTROL']
-disable = """
-  fixme,
-  duplicate-code,
-  missing-docstring,
-  invalid-name,
-  ungrouped-imports,
-  wrong-import-order,
-  wrong-import-position,
-  import-outside-toplevel,
-  unused-argument,
-  no-member,
-  protected-access,
-  attribute-defined-outside-init,
-  too-few-public-methods,
-  too-many-public-methods,
-  too-many-ancestors,
-  too-many-instance-attributes,
-  too-many-arguments,
-  too-many-locals,
-  too-many-statements,
-  too-many-lines,
-  too-many-branches,
-  too-many-nested-blocks,
-  too-many-return-statements,
-  too-many-boolean-expressions,
-"""
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+ignore-fully-untyped = true
+suppress-dummy-args = true
+suppress-none-returning = true
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+split-on-trailing-comma = false
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 72
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.mypy]
 ignore_missing_imports = true
-
-[tool.pydocstyle]
-convention = "pep257"
-add_ignore = "D100,D101,D102,D103,D104,D105,D106,D107"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]

@@ -9,16 +9,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install poetry
       run: pipx install poetry
-    - name: Create lock file
-      run: poetry lock
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        cache: poetry
-    - name: Install build dependencies
+    - name: Install dependencies
       run: poetry self add "poetry-dynamic-versioning[plugin]"
     - name: Build dist
       run: poetry build
