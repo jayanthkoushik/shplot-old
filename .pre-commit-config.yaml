@@ -5,7 +5,6 @@ repos:
   - id: check-case-conflict
   - id: check-symlinks
   - id: destroyed-symlinks
-  - id: fix-byte-order-marker
   - id: end-of-file-fixer
   - id: mixed-line-ending
   - id: trailing-whitespace
