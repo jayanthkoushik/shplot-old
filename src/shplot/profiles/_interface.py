@@ -21,6 +21,7 @@ __all__ = [
     "ProfileBase",
     "ColorProfile",
     "FontProfile",
+    "FloatOrStr",
     "PlotScaleProfile",
     "AxesProfile",
     "PlottingProfile",
@@ -274,16 +275,18 @@ class FontProfile(ProfileBase):
         return rc_dict
 
 
+class FloatOrStr(ABC):
+    """Float or string type."""
+
+    __metavar__ = "float|str"
+
+
+FloatOrStr.register(float)
+FloatOrStr.register(str)
+
+
 class PlotScaleProfile(ProfileBase):
     """Wrapper for plot scale-related matplotlib params."""
-
-    class FloatOrStr(ABC):
-        """Float or string type."""
-
-        __metavar__ = "float|str"
-
-    FloatOrStr.register(float)
-    FloatOrStr.register(str)
 
     font_size: float
     axes_title_size: FloatOrStr
