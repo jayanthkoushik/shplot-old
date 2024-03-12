@@ -1,0 +1,22 @@
+name: Run pre-commit checks
+
+on:
+  push:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install poetry
+      run: pipx install poetry
+    - name: Create lock file
+      run: poetry lock
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: poetry
+    - name: Install dependencies
+      run: poetry install --all-extras
+    - name: Run pre-commit hooks
+      run: poetry run pre-commit --all-files
