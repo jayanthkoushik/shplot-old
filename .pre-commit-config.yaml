@@ -1,0 +1,85 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1
+  hooks:
+  - id: check-case-conflict
+  - id: check-symlinks
+  - id: destroyed-symlinks
+  - id: fix-byte-order-marker
+  - id: end-of-file-fixer
+  - id: mixed-line-ending
+  - id: trailing-whitespace
+  - id: check-json
+  - id: check-toml
+  - id: check-xml
+  - id: check-yaml
+  - id: pretty-format-json
+    args: ['--autofix', '--no-sort-keys']
+  - id: check-executables-have-shebangs
+  - id: check-shebang-scripts-are-executable
+  - id: check-merge-conflict
+  - id: check-vcs-permalinks
+  - id: detect-private-key
+
+- repo: local
+  hooks:
+  - id: black
+    name: format python files
+    entry: poetry run black
+    language: system
+    types_or: [python, jupyter]
+  - id: isort
+    name: sort python imports
+    entry: poetry run isort
+    language: system
+    types: [python]
+  - id: pylint
+    name: lint python files
+    entry: poetry run pylint
+    language: system
+    types: [python]
+  - id: flake8
+    name: style check python files
+    entry: poetry run flake8
+    language: system
+    types: [python]
+  - id: mypy
+    name: type check python files
+    entry: poetry run mypy .
+    language: system
+    types: [python]
+    pass_filenames: false
+  - id: pydocstyle
+    name: lint python docstrings
+    entry: poetry run pydocstyle
+    language: system
+    types: [python]
+  - id: test
+    name: run unittests
+    language: system
+    entry: poetry run python -m unittest
+    types: [python]
+    pass_filenames: false
+  - id: docs
+    name: build docs with sphinx
+    entry: poetry run docs/make.sh
+    language: system
+    files: ".*\\.py|docs/make\\.sh"
+    exclude: "tests/.*\\.py"
+    pass_filenames: false
+  - id: cspell
+    name: spell check docs
+    language: system
+    files: "docs/.*\\.md"
+    entry: npx cspell
+  - id: nbstrip
+    name: remove metadata from notebooks
+    entry: poetry run jupyter nbconvert --inplace --ClearMetadataPreprocessor.enabled=True
+    language: system
+    types: [jupyter]
+  - id: commitlint
+    name: lint commit message
+    language: system
+    entry: npx commitlint -e
+    always_run: true
+    stages: [commit-msg]
