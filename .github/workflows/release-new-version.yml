@@ -17,13 +17,33 @@ jobs:
     - uses: actions/setup-node@v4
     - name: Configure git
       run: |
-        git config --global user.name "${GITHUB_ACTOR}"
-        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com
+
     - name: Build new version
       run: npx standard-version -a
     - name: Push new commit with tag
       run: git push --follow-tags origin master
+
     - name: Create GitHub release
       run: npx conventional-github-releaser -p angular
       env:
         CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.RELEASE_ACCESS_TOKEN }}
+
+    - name: Install poetry
+      run: pipx install poetry
+    - uses: actions/setup-python@v5
+      with:
+        cache: poetry
+    - name: Install python dependencies
+      run: poetry install --all-extras
+    - name: Get latest tag
+      id: tag
+      run: echo "tag=$( git describe --tags --abbrev=0 )" >> $GITHUB_OUTPUT
+    - name: Extract major and minor version numbers
+      id: version
+      run: echo "version=$( echo ${{ steps.tag.outputs.tag }} | sed -E 's/^v([0-9]+)\.([0-9]+)\..*$/\1.\2/' )" >> $GITHUB_OUTPUT
+    - name: Deploy site
+      run: |
+        poetry run mike set-default --allow-undefined latest
+        poetry run mike deploy --update-aliases --push --allow-empty ${{ steps.version.outputs.version }} latest
