@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/jayanthkoushik/shplot-old/compare/v1.4.0...v1.4.1) (2024-03-13)
+
+
+### Bug Fixes
+
+* dependencies ([31a5498](https://github.com/jayanthkoushik/shplot-old/commit/31a5498ff2da15a2a3cbfede6a4570be4624231d))
+* maybe pip ([98b5d79](https://github.com/jayanthkoushik/shplot-old/commit/98b5d79490fc680fd1b439a909a715eeb80ed61b))
+* no 12 ([e1845ba](https://github.com/jayanthkoushik/shplot-old/commit/e1845ba59e5d3039555d2e6f7d12d6219a38a2e8))
+
 ## [1.4.0](https://github.com/jayanthkoushik/shplot-old/compare/v1.3.0...v1.4.0) (2024-03-13)
 
 
