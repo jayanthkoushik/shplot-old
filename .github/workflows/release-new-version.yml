@@ -23,3 +23,7 @@ jobs:
       run: npx standard-version -a
     - name: Push new commit with tag
       run: git push --follow-tags origin master
+    - name: Create GitHub release
+      run: npx conventional-github-releaser -p angular
+      env:
+        CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.RELEASE_ACCESS_TOKEN }}
