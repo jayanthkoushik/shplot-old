@@ -14,11 +14,11 @@ jobs:
       with:
         fetch-depth: 0
     - uses: actions/setup-node@v4
-    - name: Build new version
-      run: npx standard-version -a
     - name: Configure git
       run: |
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
+    - name: Build new version
+      run: npx standard-version -a
     - name: Push new commit with tag
       run: git push --folow-tags origin master
