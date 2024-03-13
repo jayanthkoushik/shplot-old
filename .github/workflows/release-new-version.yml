@@ -21,4 +21,4 @@ jobs:
     - name: Build new version
       run: npx standard-version -a
     - name: Push new commit with tag
-      run: git push --folow-tags origin master
+      run: git push --follow-tags origin master
