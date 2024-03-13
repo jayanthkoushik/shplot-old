@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/jayanthkoushik/shplot-old/compare/v1.3.0...v1.4.0) (2024-03-13)
+
+
+### Features
+
+* test first ([1cd3e82](https://github.com/jayanthkoushik/shplot-old/commit/1cd3e828ebc9b1d063c34750818520347f11a10f))
+
 ## [1.3.0](https://github.com/jayanthkoushik/shplot-old/compare/v1.2.0...v1.3.0) (2024-03-13)
 
 
