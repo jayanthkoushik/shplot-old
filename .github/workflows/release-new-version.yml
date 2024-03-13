@@ -20,7 +20,7 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-    - run: pipx install poetry
+    - run: pip install poetry
     - run: poetry run python --version
     - run: poetry lock
     - run: poetry install --only main --all-extras
