@@ -3,17 +3,17 @@ name: Create GitHub release with changelog
 on:
   push:
     tags:
-    - 'v*'
+      - "v*"
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-node@v4
-    - name: Create release with changelog
-      run: npx conventional-github-releaser -p angular
-      env:
-        CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.CONVENTIONAL_GITHUB_RELEASER_TOKEN }}
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+      - name: Create release with changelog
+        run: npx conventional-github-releaser -p angular
+        env:
+          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.CONVENTIONAL_GITHUB_RELEASER_TOKEN }}

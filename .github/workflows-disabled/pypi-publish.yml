@@ -3,20 +3,20 @@ name: Publish project to pypi
 on:
   push:
     tags:
-    - 'v*'
+      - "v*"
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Install poetry
-      run: pipx install poetry
-    - name: Install dependencies
-      run: poetry self add "poetry-dynamic-versioning[plugin]"
-    - name: Build dist
-      run: poetry build
-    - name: Publish to pypi
-      run: poetry publish -u __token__ -p $PYPI_TOKEN
-      env:
-        PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Install dependencies
+        run: poetry self add "poetry-dynamic-versioning[plugin]"
+      - name: Build dist
+        run: poetry build
+      - name: Publish to pypi
+        run: poetry publish -u __token__ -p $PYPI_TOKEN
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}

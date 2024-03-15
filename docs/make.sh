@@ -21,7 +21,7 @@ poetry run sphinx-build \
     -b markdown \
     -c docs \
     -d docs/_build/.doctrees \
-    docs/_build docs `ls docs/_build/*.rst`
+    docs/_build docs $(ls docs/_build/*.rst)
 
 # Remove trailing spaces from generated files.
 find docs -name '*.md' -exec perl -pi -e 's/ *$//' {} +

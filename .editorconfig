@@ -10,5 +10,5 @@ indent_style = space
 [*.{py,sh}]
 indent_size = 4
 
-[*.{yml,yaml,toml,md,json}]
+[*.{yml,yaml,toml,md,json,html}]
 indent_size = 2

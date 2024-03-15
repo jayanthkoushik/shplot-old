@@ -8,10 +8,13 @@ Wrapper around a `matplotlib` figure.
 
 `ShPlot` represents a single figure, optionally associated with a
 `shplot` built-in profile
-(`shplot.profiles.builtin.SH_BUILTIN_PROFILES`). Public attributes
-are exposed as properties, and can also be set during initialization
-as keyword only arguments. All attributes are optional; refer to
-their descriptions for details.
+([SH_BUILTIN_PROFILES][shplot.profiles.builtin.SH_BUILTIN_PROFILES]).
+
+`ShPlot` inherits from `Corgy`, which provides a “dataclass” like
+interface. Public attributes are exposed as properties, and can also
+be set during initialization as keyword only arguments. All
+attributes are optional; refer to their descriptions for details.
+Refer to the [Corgy docs][corgy.Corgy] for details on the interface.
 
 ### Examples
 

@@ -1,28 +1,34 @@
-site_name: "shplot"
+site_name: shplot
 site_url: "https://jkoushik.me/shplot-old"
 repo_url: "https://github.com/jayanthkoushik/shplot-old"
 site_description: "Documentation for Python package 'shplot'."
-site_author: "Jayanth Koushik"
-copyright: "Copyright (c) 2024 Jayanth Koushik"
+site_author: Jayanth Koushik
+copyright: Copyright (c) 2024 Jayanth Koushik
 
-docs_dir: "www/src"
-site_dir: "www/_site"
+docs_dir: www/src
+site_dir: www/_site
 
 nav:
-  - "Home": "index.md"
-  - "Usage":
-      - "shplot": "usage/shplot.md"
-      - "shplot.profiles": "usage/shplot.profiles.md"
-      - "shplot.profiles.builtin": "usage/shplot.profiles.builtin.md"
+  - Home:
+      - index.md
+      - License: LICENSE.md
+      - Changelog: CHANGELOG.md
+  - API reference: usage/
 
 plugins:
   - search
-  - offline
   - mike:
-      canonical_version: "latest"
+      canonical_version: latest
+  - gen-files:
+      scripts:
+        - www/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
   - mkdocstrings:
       handlers:
         python:
+          import:
+            - https://jkoushik.me/corgy/9.3/objects.inv
           options:
             show_root_toc_entry: false
             members_order: source
@@ -33,29 +39,38 @@ plugins:
               - "!^_"
 
 markdown_extensions:
+  - smarty
   - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.betterem:
+      smart_enable: all
   - toc:
-      permalink: "#"
+      permalink: true
 
 extra:
   version:
     provider: mike
 
 theme:
-  name: "material"
+  name: material
+  custom_dir: www/src/theme/overrides
   features:
-    - navigation.instant
-    - navigation.expand
     - content.code.copy
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
   palette:
     - media: "(prefers-color-scheme: light)"
-      scheme: "default"
+      scheme: default
       toggle:
-        icon: "material/weather-sunny"
-        name: "Switch to dark mode"
+        icon: material/weather-sunny
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: "slate"
+      scheme: slate
       toggle:
-        icon: "material/weather-night"
-        name: "Switch to light mode"
+        icon: material/weather-night
+        name: Switch to light mode

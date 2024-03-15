@@ -1,69 +1,85 @@
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.0.1
-  hooks:
-  - id: check-case-conflict
-  - id: check-symlinks
-  - id: destroyed-symlinks
-  - id: end-of-file-fixer
-  - id: mixed-line-ending
-  - id: trailing-whitespace
-  - id: check-json
-  - id: check-toml
-  - id: check-xml
-  - id: check-yaml
-  - id: pretty-format-json
-    args: ['--autofix', '--no-sort-keys']
-  - id: check-executables-have-shebangs
-  - id: check-shebang-scripts-are-executable
-  - id: check-merge-conflict
-  - id: check-vcs-permalinks
-  - id: detect-private-key
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-case-conflict
+      - id: check-symlinks
+      - id: destroyed-symlinks
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: pretty-format-json
+        args: ["--autofix", "--no-sort-keys"]
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-merge-conflict
+      - id: check-vcs-permalinks
+      - id: detect-private-key
 
-- repo: local
-  hooks:
-  - id: format
-    name: Format Python files
-    language: system
-    entry: poetry run ruff format
-    types: [python]
-  - id: lint
-    name: Lint Python files
-    language: system
-    entry: poetry run ruff check
-    types: [python]
-    pass_filenames: false
-  - id: mypy
-    name: Type check Python files
-    entry: poetry run mypy .
-    language: system
-    types: [python]
-    pass_filenames: false
-  - id: test
-    name: Run unit tests
-    language: system
-    entry: poetry run python -m unittest
-    types: [python]
-    pass_filenames: false
-  - id: docs
-    name: Build docs with Sphinx
-    entry: poetry run docs/make.sh
-    language: system
-    files: "src/.*\\.py|docs/make\\.sh"
-    pass_filenames: false
-  - id: cspell
-    name: Spell check docs
-    language: system
-    entry: npx cspell
-    files: "docs/.*\\.md"
-  - id: nbstrip
-    name: Remove metadata from notebooks
-    entry: poetry run jupyter nbconvert --inplace --ClearMetadataPreprocessor.enabled=True
-    language: system
-    types: [jupyter]
-  - id: commitlint
-    name: Lint commit message
-    language: system
-    entry: npx commitlint -e
-    always_run: true
-    stages: [commit-msg]
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v8.6.0
+    hooks:
+      - id: cspell
+        name: Spell check docs
+        files: "docs/.*\\.md|README.md"
+
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.13.0
+    hooks:
+      - id: commitlint
+        name: Lint commit message
+        stages: [commit-msg]
+        additional_dependencies:
+          - "@commitlint/config-angular"
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        name: "Prettify non-code files"
+        entry: prettier --write --ignore-unknown --cache-location .prettier_cache/cache.json
+        additional_dependencies:
+          - prettier@4.0.0-alpha.8
+          - prettier-plugin-sh
+          - prettier-plugin-toml
+
+  - repo: local
+    hooks:
+      - id: format
+        name: Format Python files
+        language: system
+        entry: poetry run ruff format
+        types: [python]
+      - id: lint
+        name: Lint Python files
+        language: system
+        entry: poetry run ruff check
+        types: [python]
+        pass_filenames: false
+      - id: mypy
+        name: Type check Python files
+        entry: poetry run mypy .
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: test
+        name: Run unit tests
+        language: system
+        entry: poetry run python -m unittest
+        types: [python]
+        pass_filenames: false
+      - id: docs
+        name: Build docs with Sphinx
+        entry: poetry run docs/make.sh
+        language: system
+        files: "src/.*\\.py|docs/make\\.sh"
+        pass_filenames: false
+      - id: nbstrip
+        name: Remove metadata from notebooks
+        entry: poetry run jupyter nbconvert --inplace --ClearMetadataPreprocessor.enabled=True
+        language: system
+        types: [jupyter]

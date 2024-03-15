@@ -1,23 +1,19 @@
 [tool.poetry]
 name = "shplot"
-version = "0.0.0"  # managed by `poetry-dynamic-versioning`
+version = "0.0.0" # managed by `poetry-dynamic-versioning`
 description = "Wrapper for Matplotlib"
 authors = ["Jayanth Koushik <mail@jkoushik.me>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/jayanthkoushik/shplot-old"
-packages = [
-  { include = "shplot", from = "src" },
-]
+packages = [{ include = "shplot", from = "src" }]
 include = [
   { path = "tests", format = "sdist" },
   { path = "docs", format = "sdist" },
-  { path = "www", format = "sdist" },
+  { path = "scripts", format = "sdist" },
   { path = "CHANGELOG.md", format = "sdist" },
 ]
-exclude = [
-  "docs/make.sh",
-]
+exclude = ["docs/make.sh"]
 
 # keywords = [
 # ]
@@ -35,14 +31,16 @@ corgy = "^9.2"
 
 [tool.poetry.extras]
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pre-commit = "^3.2"
 ruff = "^0.3"
 mypy = "^1.1"
 sphinx = "^5.3"
 sphinx-markdown-builder = { git = "https://github.com/clayrisser/sphinx-markdown-builder" }
 mkdocstrings = { extras = ["python-legacy"], version = "^0.22.0" }
-mkdocs-material = "^9.1.15"
+mkdocs-material = "^9.4.3"
+mkdocs-gen-files = "^0.5.0"
+mkdocs-literate-nav = "^0.6.1"
 mike = { git = "https://github.com/jimporter/mike" }
 
 [tool.poetry-dynamic-versioning]

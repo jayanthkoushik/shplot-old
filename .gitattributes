@@ -1,10 +1,10 @@
 .git*                       export-ignore
-.pre-commit-config.yaml     export-ignore
 .commitlintrc.yaml          export-ignore
 .editorconfig               export-ignore
+.pre-commit-config.yaml     export-ignore
+.prettierignore             export-ignore
+.prettierrc.js              export-ignore
 .cspell.json                export-ignore
-.python-version             export-ignore
-release.sh                  export-ignore
-docs/make.sh                export-ignore
+project-words.txt           export-ignore
 
 demos                       export-ignore
