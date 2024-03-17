@@ -42,8 +42,9 @@ repos:
       - id: prettier
         name: "Prettify non-code files"
         entry: prettier --write --ignore-unknown --cache-location .prettier_cache/cache.json
+        stages: [pre-commit]
         additional_dependencies:
-          - prettier@4.0.0-alpha.8
+          - prettier
           - prettier-plugin-sh
           - prettier-plugin-toml
 
@@ -71,9 +72,10 @@ repos:
         language: system
         entry: poetry run python -m unittest
         types: [python]
+        exclude: "scripts/.*\\.py|www/.*\\.py"
         pass_filenames: false
       - id: docs
-        name: Build docs with Sphinx
+        name: Build docs
         entry: poetry run docs/make.sh
         language: system
         files: "src/.*\\.py|docs/make\\.sh"

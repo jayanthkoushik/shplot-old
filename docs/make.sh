@@ -1,9 +1,7 @@
 #!/usr/bin/env sh
 # Usage: docs/make.sh  # must be executed from the project root
-# Generates markdown documentation for each top level package, except `tests`.
-# One file is generated per module, which is put in `docs/`.
 
-poetry run sphinx-apidoc \
+sphinx-apidoc \
     -o docs/_build \
     -d 1 \
     --module-first \
@@ -11,7 +9,7 @@ poetry run sphinx-apidoc \
     --separate \
     src/*
 
-poetry run sphinx-build \
+sphinx-build \
     -C \
     -D extensions=sphinx.ext.autodoc,sphinx.ext.napoleon \
     -D default_role=samp \

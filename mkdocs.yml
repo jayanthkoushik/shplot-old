@@ -22,8 +22,7 @@ plugins:
   - gen-files:
       scripts:
         - www/gen_ref_pages.py
-  - literate-nav:
-      nav_file: SUMMARY.md
+  - literate-nav
   - mkdocstrings:
       handlers:
         python:
@@ -54,7 +53,7 @@ extra:
 
 theme:
   name: material
-  custom_dir: www/src/theme/overrides
+  custom_dir: www/theme/overrides
   features:
     - content.code.copy
     - navigation.instant
