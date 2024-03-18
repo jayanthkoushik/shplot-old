@@ -19,9 +19,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: install poetry
+        run: pip install poetry
       - name: install dependencies with poetry
         run: |
-          pip install poetry
           poetry lock
           poetry install --only main --all-extras
       - name: run tests
@@ -37,12 +38,13 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
 
+      - name: install poetry
+        run: pipx install poetry
       - uses: actions/setup-python@v5
         with:
           cache: poetry
       - name: install dependencies with poetry
         run: |
-          pipx install poetry
           poetry self add "poetry-dynamic-versioning[plugin]"
           poetry install --all-extras
 
