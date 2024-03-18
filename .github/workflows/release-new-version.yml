@@ -4,10 +4,27 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Version for new release
+        description: >
+          Version for new release. Should be a valid semvar version,
+          or one of 'major', 'minor', or 'patch'. If not provided,
+          version is determined automatically from commits since the
+          previous release.
+        type: string
         required: false
         default: ""
+      pre-release:
+        description: Make a pre-release.
+        type: boolean
+        required: false
+        default: false
+      pre-release-tag:
+        description: >
+          Optional tag to use when making a pre-release. This only has
+          effect if 'pre-release' is 'true', and will create release
+          '<major>.<minor>.<patch>-<pre-release-tag>-<pre-release-version>'.
         type: string
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -63,7 +80,16 @@ jobs:
           git config --global user.email github-actions@github.com
 
       - name: bump version and create changelog
-        run: npx commit-and-tag-version -a
+        run: |
+          echo "input version: ${{ inputs.version }}"
+          echo "input pre-release: ${{ inputs.pre-release }}"
+          echo "input pre-release-tag: ${{ inputs.pre-release-tag }}"
+          if [ -z ${{ inputs.version }} ]; then
+            version_arg="-r ${{ inputs.version }}"
+          else
+            version_arg=""
+          fi
+          npx commit-and-tag-version -a ${version_arg}
 
       - name: push new version to master
         run: git push --follow-tags origin master
