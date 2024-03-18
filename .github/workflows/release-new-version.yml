@@ -63,7 +63,7 @@ jobs:
           git config --global user.email github-actions@github.com
 
       - name: bump version and create changelog
-        run: npx standard-version -a
+        run: npx commit-and-tag-version -a
 
       - name: push new version to master
         run: git push --follow-tags origin master
