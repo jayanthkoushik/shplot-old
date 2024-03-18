@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "shplot"
-version = "0.0.0" # managed by `poetry-dynamic-versioning`
+version = "1.6.0" # managed by `poetry-dynamic-versioning`
 description = "Wrapper for Matplotlib"
 authors = ["Jayanth Koushik <mail@jkoushik.me>"]
 license = "MIT"
