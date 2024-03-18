@@ -19,8 +19,8 @@ on:
         default: false
       pre-release-tag:
         description: >
-          Optional tag to use when making a pre-release. This only has
-          effect if 'pre-release' is 'true', and will create release
+          Optional pre-release tag. This only has effect
+          if making a pre-release, and will create release
           '<major>.<minor>.<patch>-<pre-release-tag>-<pre-release-version>'.
         type: string
         required: false
@@ -81,15 +81,20 @@ jobs:
 
       - name: bump version and create changelog
         run: |
-          echo "input version: ${{ inputs.version }}"
-          echo "input pre-release: ${{ inputs.pre-release }}"
-          echo "input pre-release-tag: ${{ inputs.pre-release-tag }}"
-          if [ -z ${{ inputs.version }} ]; then
-            version_arg="-r ${{ inputs.version }}"
-          else
+          if [ -z "${{ inputs.version }}" ]; then
             version_arg=""
+          else
+            version_arg="-r ${{ inputs.version }}"
           fi
-          npx commit-and-tag-version -a ${version_arg}
+          if [ "${{ inputs.pre-release }}" = "true" ]; then
+            if [ -z "${{ inputs.pre-release-tag }}" ]; then
+              pre_release_arg="-p"
+            else
+              pre_release_arg="-p ${{ inputs.pre-release-tag }}"
+          else
+            pre_release_arg=""
+          fi
+          npx commit-and-tag-version -a ${version_arg} ${pre_release_arg}
 
       - name: push new version to master
         run: git push --follow-tags origin master
