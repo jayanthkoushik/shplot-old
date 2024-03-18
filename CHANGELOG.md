@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.7.0](https://github.com/jayanthkoushik/shplot-old/compare/v1.6.0...v1.7.0) (2024-03-18)
+
+
+### Features
+
+* release version ([430e742](https://github.com/jayanthkoushik/shplot-old/commit/430e74289ce6fda4a32993610f3a9556d6ca37df))
+
 ## [1.6.0](https://github.com/jayanthkoushik/shplot-old/compare/v1.5.0...v1.6.0) (2024-03-18)
 
 
