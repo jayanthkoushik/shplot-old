@@ -91,6 +91,7 @@ jobs:
               pre_release_arg="-p"
             else
               pre_release_arg="-p ${{ inputs.pre-release-tag }}"
+            fi
           else
             pre_release_arg=""
           fi
