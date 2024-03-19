@@ -3,24 +3,34 @@ name: Create and publish a new release
 on:
   workflow_dispatch:
     inputs:
+      first_release:
+        description: >
+          Create the first release. If version is not specified,
+          it will be set to '1.0.0'. No changelog will be generated.
+        type: boolean
+        required: false
+        default: false
       version:
         description: >
-          Version for new release. Should be a valid semvar version,
-          or one of 'major', 'minor', or 'patch'. If not provided,
-          version is determined automatically from commits since the
-          previous release.
+          Release as the provided version. Should be a valid semvar
+          version, or one of 'major', 'minor', or 'patch'. If not
+          provided, version is determined automatically from commits
+          since the previous release.
         type: string
         required: false
         default: ""
       pre-release:
-        description: Make a pre-release.
+        description: >
+          Make a pre-release. If a custom version is specified, a
+          pre-release tag must be provided, or the custom version should
+          be of the form '<major>.<minor>.<patch>-<pre-release-tag>'.
         type: boolean
         required: false
         default: false
       pre-release-tag:
         description: >
-          Optional pre-release tag. This only has effect
-          if making a pre-release, and will create release
+          Use provided tag for pre-release. This only has effect
+          if making a pre-release, and will create release with version
           '<major>.<minor>.<patch>-<pre-release-tag>-<pre-release-version>'.
         type: string
         required: false
@@ -86,6 +96,7 @@ jobs:
       - name: Bump version and create changelog
         run: >
           ./scripts/commit_and_tag_version.py
+          -f ${{ inputs.first-release }}
           -r ${{ inputs.version }}
           -p ${{ inputs.pre-release }}
           -t ${{ inputs.pre-release-tag }}
