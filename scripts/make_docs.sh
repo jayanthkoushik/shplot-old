@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-# Usage: docs/make.sh  # must be executed from the project root
+
+set -e
 
 sphinx-apidoc \
     -o docs/_build \

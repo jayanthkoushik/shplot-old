@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Adapted from script in Matplotlib gallery:
 # 'matplotlib.org/gallery/style_sheets/style_sheets_reference.html'.
 

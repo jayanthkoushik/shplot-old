@@ -80,22 +80,7 @@ jobs:
           git config --global user.email github-actions@github.com
 
       - name: bump version and create changelog
-        run: |
-          if [ -z "${{ inputs.version }}" ]; then
-            version_arg=""
-          else
-            version_arg="-r ${{ inputs.version }}"
-          fi
-          if [ "${{ inputs.pre-release }}" = "true" ]; then
-            if [ -z "${{ inputs.pre-release-tag }}" ]; then
-              pre_release_arg="-p"
-            else
-              pre_release_arg="-p ${{ inputs.pre-release-tag }}"
-            fi
-          else
-            pre_release_arg=""
-          fi
-          npx commit-and-tag-version -a ${version_arg} ${pre_release_arg}
+        run: ./scripts/commit_and_tag_version.py
 
       - name: push new version to master
         run: git push --follow-tags origin master

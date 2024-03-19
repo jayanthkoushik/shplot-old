@@ -78,7 +78,7 @@ repos:
         pass_filenames: false
       - id: docs
         name: Build docs
-        entry: poetry run docs/make.sh
+        entry: poetry run scripts/make_docs.sh
         language: system
         files: "src/.*\\.py|docs/make\\.sh"
         pass_filenames: false

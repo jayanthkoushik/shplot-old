@@ -10,10 +10,9 @@ packages = [{ include = "shplot", from = "src" }]
 include = [
   { path = "tests", format = "sdist" },
   { path = "docs", format = "sdist" },
-  { path = "scripts", format = "sdist" },
   { path = "CHANGELOG.md", format = "sdist" },
+  { path = "scripts/plot_demos.py", format = "sdist" },
 ]
-exclude = ["docs/make.sh"]
 
 # keywords = [
 # ]

@@ -21,7 +21,7 @@ plugins:
       canonical_version: latest
   - gen-files:
       scripts:
-        - www/gen_ref_pages.py
+        - scripts/gen_site_usage_pages.py
   - literate-nav
   - mkdocstrings:
       handlers:
