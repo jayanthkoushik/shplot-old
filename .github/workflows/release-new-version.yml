@@ -3,7 +3,7 @@ name: Create and publish a new release
 on:
   workflow_dispatch:
     inputs:
-      first_release:
+      first-release:
         description: >
           Create the first release. If version is not specified,
           it will be set to '1.0.0'. No changelog will be generated.
