@@ -82,9 +82,9 @@ jobs:
       - name: bump version and create changelog
         run: >
           ./scripts/commit_and_tag_version.py
-          -r ${{ input.version }}
-          -p ${{ input.pre-release }}
-          -t ${{ input.pre-release-tag }}
+          -r ${{ inputs.version }}
+          -p ${{ inputs.pre-release }}
+          -t ${{ inputs.pre-release-tag }}
 
       - name: push new version to master
         run: git push --follow-tags origin master
