@@ -19,6 +19,7 @@ jobs:
           token: ${{ secrets.RELEASE_ACCESS_TOKEN }}
           commit-message: "chore: update pre-commit hooks"
           committer: github-actions <github-actions@github.com>
+          author: github-actions <github-actions@github.com>
           branch: update-pre-commit-hooks
           title: Update pre-commit hooks
           body: ""
