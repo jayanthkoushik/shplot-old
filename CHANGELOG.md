@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0](https://github.com/jayanthkoushik/shplot-old/compare/v2.0.0-alpha.1...v2.0.0) (2024-03-20)
+
+
+### Features
+
+* autoupdate pre-commit hooks ([bf792ba](https://github.com/jayanthkoushik/shplot-old/commit/bf792badbb7d5c6efca3beae74e1bd4912feb6af))
+* clean ([3ae8885](https://github.com/jayanthkoushik/shplot-old/commit/3ae88856ab84c3874cc337817122b7d1ae5ffaaa))
+* first ([8f7e340](https://github.com/jayanthkoushik/shplot-old/commit/8f7e34089b7792e41ea674c081abc060c82a4692))
+* hook author ([7d92d52](https://github.com/jayanthkoushik/shplot-old/commit/7d92d52fdd6bd69e9f7d8119c596329df4084266))
+* shna ([0f7c44e](https://github.com/jayanthkoushik/shplot-old/commit/0f7c44e254e65725fa0b7a20ef9f82772400358f))
+
+
+### Bug Fixes
+
+* first ([f51bb4b](https://github.com/jayanthkoushik/shplot-old/commit/f51bb4ba11acde53ac0fc18f71699d3739d58bf1))
+* whoops ([5a2df09](https://github.com/jayanthkoushik/shplot-old/commit/5a2df09115499dfc2638ab519d49813c17a04c0b))
+
 ## [2.0.0-alpha.1](https://github.com/jayanthkoushik/shplot-old/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2024-03-19)
 
 
