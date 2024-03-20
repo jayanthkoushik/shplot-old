@@ -1,4 +1,4 @@
-name: Update pre-commit hooks to point to their latest releases
+name: Update pre-commit hooks
 
 on:
   workflow_dispatch:
@@ -10,16 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install pre-commit
-        run: pipx install pre-commit
-      - name: Auto-update hooks
-        run: pre-commit autoupdate
+      - run: pipx install pre-commit
+      - run: pre-commit autoupdate
       - uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.RELEASE_ACCESS_TOKEN }}
           commit-message: "chore: update pre-commit hooks"
-          #committer: github-actions <github-actions@github.com>
-          #author: github-actions <github-actions@github.com>
           branch: update-pre-commit-hooks
           title: Update pre-commit hooks
-          body: ""
+          labels: automated,chore
