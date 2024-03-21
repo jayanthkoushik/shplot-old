@@ -3,6 +3,15 @@ name: Check pull request
 on: pull_request
 
 jobs:
+  run-pre-commit-hooks:
+    - uses: actions/checkout@v4
+    - run: pipx install poetry
+    - uses: actions/setup-python@v5
+      with:
+        cache: poetry
+    - run: poetry install --all-extras
+    - run: SKIP=test poetry run pre-commit run --all-files
+
   call-run-tests:
     uses: ./.github/workflows/run-tests.yml
     with:
