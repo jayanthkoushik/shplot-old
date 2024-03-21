@@ -157,7 +157,7 @@ class ShPlot(Corgy):
             raise TypeError("plot already open")
         if self._profile is not None:
             self._profile_ctx = self._profile.context()
-            self._profile_ctx.__enter__()  # pylint: disable=unnecessary-dunder-call
+            self._profile_ctx.__enter__()
         self._fig, self._ax = plt.subplots(**kwargs)
         self._fig.set_size_inches(self.get_plot_size())
         return (self._fig, self._ax)
