@@ -18,7 +18,6 @@ jobs:
       - run: pre-commit autoupdate
       - uses: peter-evans/create-pull-request@v6
         with:
-          #token: ${{ secrets.RELEASE_ACCESS_TOKEN }}
           commit-message: "chore: update pre-commit hooks"
           branch: update-pre-commit-hooks
           title: Update pre-commit hooks

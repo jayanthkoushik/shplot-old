@@ -36,6 +36,9 @@ on:
         required: false
         default: ""
 
+permissions:
+  contents: write
+
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
@@ -52,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.RELEASE_ACCESS_TOKEN }}
+          #token: ${{ secrets.RELEASE_ACCESS_TOKEN }}
           fetch-depth: 0
       - uses: actions/setup-node@v4
 
@@ -82,7 +85,8 @@ jobs:
 
       - run: npx conventional-github-releaser -p angular
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.RELEASE_ACCESS_TOKEN }}
+          #CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.RELEASE_ACCESS_TOKEN }}
+          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ github.token }}
 
       - run: poetry build
       #- run: poetry publish -u __token__ -p $PYPI_TOKEN

@@ -1,4 +1,4 @@
-name: Run tests on a matrix of OSes and Python versions
+name: Run unit tests
 
 on:
   workflow_call:
