@@ -5,6 +5,9 @@ on:
   #schedule:
   #  - cron: '0 0 1 * *'
 
+permissions:
+  pull_requests: write
+
 jobs:
   pre-commit-autoupdate:
     runs-on: ubuntu-latest
