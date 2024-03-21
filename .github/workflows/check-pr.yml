@@ -1,0 +1,9 @@
+name: Check pull request
+
+on: pull_request
+
+jobs:
+  call-run-tests:
+    uses: ./.github/workflows/run-tests.yml
+    with:
+      fail-fast: false
