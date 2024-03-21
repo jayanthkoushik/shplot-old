@@ -17,6 +17,8 @@ jobs:
         uses: tim-actions/get-pr-commits@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo ${{ steps.get-pr-commits.commits }}
 
   call-run-tests:
     uses: ./.github/workflows/run-tests.yml
