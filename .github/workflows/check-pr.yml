@@ -4,13 +4,19 @@ on: pull_request
 
 jobs:
   run-pre-commit-hooks:
-    - uses: actions/checkout@v4
-    - run: pipx install poetry
-    - uses: actions/setup-python@v5
-      with:
-        cache: poetry
-    - run: poetry install --all-extras
-    - run: SKIP=test poetry run pre-commit run --all-files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx install poetry
+      - uses: actions/setup-python@v5
+        with:
+          cache: poetry
+      - run: poetry install --all-extras
+      - run: SKIP=test poetry run pre-commit run --all-files
+      - id: get-pr-commits
+        uses: tim-actions/get-pr-commits@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   call-run-tests:
     uses: ./.github/workflows/run-tests.yml
