@@ -40,34 +40,15 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 
-permissions:
-  contents: write
-
 jobs:
-  run-test-matrix:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+  call-run-tests:
+    uses: ./.github/workflows/run-tests.yml
+    with:
       fail-fast: true
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install poetry
-        run: pip install poetry
-      - name: Install dependencies with poetry
-        run: |
-          poetry lock
-          poetry install --only main --all-extras
-      - name: Run tests
-        run: poetry run python -m unittest -v
 
   create-release:
     runs-on: ubuntu-latest
-    needs: run-test-matrix
+    needs: call-run-tests
     steps:
       - uses: actions/checkout@v4
         with:
@@ -75,18 +56,14 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
 
-      - name: Install poetry
-        run: pipx install poetry
+      - run: pipx install poetry
       - uses: actions/setup-python@v5
         with:
           cache: poetry
-      - name: Install dependencies with poetry
-        run: |
-          poetry self add "poetry-dynamic-versioning[plugin]"
-          poetry install --all-extras
+      - run: poetry self add "poetry-dynamic-versioning[plugin]"
+      - run: poetry install --all-extras
 
-      - name: Run pre-commit checks
-        run: SKIP=test poetry run pre-commit run --all-files
+      - run: SKIP=test poetry run pre-commit run --all-files
 
       - name: Configure git
         run: |
@@ -101,19 +78,14 @@ jobs:
           -p ${{ inputs.pre-release }}
           -t ${{ inputs.pre-release-tag }}
 
-      - name: Push new version to master
-        run: git push --follow-tags origin master
+      - run: git push --follow-tags origin master
 
-      - name: Create github release for new version
-        run: npx conventional-github-releaser -p angular
+      - run: npx conventional-github-releaser -p angular
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.RELEASE_ACCESS_TOKEN }}
 
-      - name: Create python build of new release
-        run: poetry build
-
-      #- name: Upload new release to pypi
-      #  run: poetry publish -u __token__ -p $PYPI_TOKEN
+      - run: poetry build
+      #- run: poetry publish -u __token__ -p $PYPI_TOKEN
 
       - name: Get latest git tag
         id: tag
