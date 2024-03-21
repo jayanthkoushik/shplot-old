@@ -1,4 +1,3 @@
-# pylint: disable-all
 from ._shplot import *
 from ._version import __version__
 
