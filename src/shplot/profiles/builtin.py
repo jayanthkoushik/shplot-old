@@ -44,6 +44,7 @@ CUD_PALETTE = [
 ]
 """Color Universal Design (CUD) palette.
 
+This is a color-blindness friendly palette.
 See <https://jfly.uni-koeln.de/color/> for details."""
 
 
