@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0-1](https://github.com/jayanthkoushik/shplot-old/compare/v2.1.0-0...v2.1.0-1) (2024-03-21)
+
+
+### Features
+
+* try again w/o ([2318c34](https://github.com/jayanthkoushik/shplot-old/commit/2318c34a6486d5e6dd23c547f80c5bb66a2b62c5))
+* try w/o ([91504a0](https://github.com/jayanthkoushik/shplot-old/commit/91504a03d18c114b2197aad91574d625d88aaf80))
+
+
+### Bug Fixes
+
+* boo ([6a6d54e](https://github.com/jayanthkoushik/shplot-old/commit/6a6d54e3eb9485c264c30cd9afcb49190e74bfa8))
+* maybe ([1b04156](https://github.com/jayanthkoushik/shplot-old/commit/1b0415646b350e2cc4251ade79a5a184049d3119))
+* perms ([bf16ca7](https://github.com/jayanthkoushik/shplot-old/commit/bf16ca78691570fc8f7f210285fc4f7df477e7cf))
+* um no ([a5cb44c](https://github.com/jayanthkoushik/shplot-old/commit/a5cb44c575c41c74ab0aa97427db6a49b1d70105))
+
 ## [2.1.0-0](https://github.com/jayanthkoushik/shplot-old/compare/v2.0.0...v2.1.0-0) (2024-03-21)
 
 
