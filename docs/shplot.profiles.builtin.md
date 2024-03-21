@@ -78,7 +78,7 @@ Profile for generating figures for presentations.
 ### shplot.profiles.builtin.CUD_PALETTE(_ = ['#000000', '#e69f00', '#56b4e9', '#009e73', '#f0e442', '#0072b2', '#d55e00', '#cc79a7']_ )
 Color Universal Design (CUD) palette.
 
-See <[https://jfly.uni-koeln.de/color/](https://jfly.uni-koeln.de/color/)>.
+See <[https://jfly.uni-koeln.de/color/](https://jfly.uni-koeln.de/color/)> for details.
 
 
 ### _class_ shplot.profiles.builtin.ShLightCUDProfile()
