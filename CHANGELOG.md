@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0-0](https://github.com/jayanthkoushik/shplot-old/compare/v2.0.0...v2.1.0-0) (2024-03-21)
+
+
+### Features
+
+* factor out tests workflow ([66d11a4](https://github.com/jayanthkoushik/shplot-old/commit/66d11a4e0d0128681d40db29041c97581a49ff45))
+
 ## [2.0.0](https://github.com/jayanthkoushik/shplot-old/compare/v2.0.0-alpha.1...v2.0.0) (2024-03-20)
 
 
