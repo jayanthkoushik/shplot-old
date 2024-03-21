@@ -7,7 +7,7 @@ Bases: `Corgy`
 Wrapper around a `matplotlib` figure.
 
 `ShPlot` represents a single figure, optionally associated with a
-`shplot` built-in profile
+built-in profile
 ([SH_BUILTIN_PROFILES][shplot.profiles.builtin.SH_BUILTIN_PROFILES]).
 
 `ShPlot` inherits from `Corgy`, which provides a “dataclass” like
