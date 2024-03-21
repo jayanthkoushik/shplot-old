@@ -26,8 +26,8 @@ class ShPlot(Corgy):
     """Wrapper around a `matplotlib` figure.
 
     `ShPlot` represents a single figure, optionally associated with a
-    built-in profile
-    ([SH_BUILTIN_PROFILES][shplot.profiles.builtin.SH_BUILTIN_PROFILES]).
+    built-in profile from
+    [SH_BUILTIN_PROFILES][shplot.profiles.builtin.SH_BUILTIN_PROFILES].
 
     `ShPlot` inherits from `Corgy`, which provides a "dataclass" like
     interface. Public attributes are exposed as properties, and can also
