@@ -44,7 +44,7 @@ CUD_PALETTE = [
 ]
 """Color Universal Design (CUD) palette.
 
-See <https://jfly.uni-koeln.de/color/>."""
+See <https://jfly.uni-koeln.de/color/> for details."""
 
 
 class ShLightCUDProfile(ColorProfile):
