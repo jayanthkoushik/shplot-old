@@ -39,7 +39,7 @@ Refer to the [Corgy docs][corgy.Corgy] for details on the interface.
 
 
 #### _property_ file(_: str_ )
-Plot save file (extension will be automatically added if not provided).
+Plot save file (extension will be added if not provided).
 
 
 #### _property_ builtin_profile_name(_: Literal['paper', 'book', 'web_light', 'web_dark', 'presentation']_ )
