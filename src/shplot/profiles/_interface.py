@@ -33,7 +33,7 @@ class ProfileBase(Corgy, corgy_make_slots=False):
 
     Profile classes are thin wrappers around subsets of `matplotlib`
     parameters. Once instantiated, they can be used to generate a
-    dictionary which can be used to update `matplotlib.rcParams`.
+    dictionary, which can be used to update `matplotlib.rcParams`.
 
     Profile classes have a dataclass-like interface. All attributes are
     exposed as properties, and can be set either at initialization (as
