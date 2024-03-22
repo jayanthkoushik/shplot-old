@@ -163,7 +163,7 @@ class ShPlot(Corgy):
         return (self._fig, self._ax)
 
     def close(self):
-        """Close the figure.
+        """Close the plot.
 
         `TypeError` is raised if called on an unopened plot.
         """

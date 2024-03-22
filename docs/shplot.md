@@ -98,7 +98,7 @@ plot.
 
 
 #### close()
-Close the figure.
+Close the plot.
 
 `TypeError` is raised if called on an unopened plot.
 
