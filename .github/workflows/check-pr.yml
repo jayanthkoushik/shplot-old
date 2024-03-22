@@ -15,6 +15,8 @@ jobs:
       - run: SKIP=test poetry run pre-commit run --all-files
       - name: Verify commit messages
         run: ./scripts/verify_pr_commits.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   call-run-tests:
     uses: ./.github/workflows/run-tests.yml
