@@ -35,9 +35,16 @@ repos:
     hooks:
       - id: commitlint
         name: Lint commit message
+        entry: commitlint -e -s
         stages: [commit-msg]
         additional_dependencies:
-          - "@commitlint/config-angular"
+          - "@commitlint/config-conventional"
+      - id: commitlint
+        name: Lint commit message from file in $COMMIT_MSG_FILE
+        entry: commitlint -E COMMIT_MSG_FILE -s
+        stages: [manual]
+        additional_dependencies:
+          - "@commitlint/config-conventional"
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
