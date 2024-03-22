@@ -11,7 +11,11 @@ github_ref_name = os.environ["GITHUB_REF_NAME"]
 pr_num = github_ref_name.split("/")[0]
 
 gh_cmd = ["gh", "pr", "view", pr_num, "--json", "commits"]
-gh_proc = subprocess.run(gh_cmd, check=True, capture_output=True)
+try:
+    gh_proc = subprocess.run(gh_cmd, check=True, capture_output=True, text=True)
+except subprocess.CalledProcessError as e:
+    print(e.stderr)
+    sys.exit(e.returncode)
 
 gh_output_json = json.loads(gh_proc.stdout)
 commits = gh_output_json["commits"]
@@ -27,7 +31,7 @@ for commit_msg in commit_msgs:
         os.environ["COMMIT_MSG_FILE"] = f.name
         print(f"{commit_msg}\n")
         print(commit_msg, file=f)
-        pre_commit_proc = subprocess.run(pre_commit_cmd, check=False)
+        pre_commit_proc = subprocess.run(pre_commit_cmd, check=False, text=True)
         if pre_commit_proc.returncode != 0:
             ret_code = 1
         print("-" * 80)
