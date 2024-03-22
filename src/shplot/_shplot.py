@@ -55,9 +55,7 @@ class ShPlot(Corgy):
 
     """
 
-    file: Annotated[
-        str, "Plot save file (extension will be automatically added if not provided)."
-    ]
+    file: Annotated[str, "Plot save file (extension will be added if not provided)."]
     builtin_profile_name: Annotated[
         Literal["paper", "book", "web_light", "web_dark", "presentation"],
         "Name of a built-in profile.",
