@@ -24,7 +24,15 @@ commit_msgs = [
     for commit in commits
 ]
 
-pre_commit_cmd = ["pre-commit", "run", "--hook-stage", "manual", "commitlint"]
+pre_commit_cmd = [
+    "poetry",
+    "run",
+    "pre-commit",
+    "run",
+    "--hook-stage",
+    "manual",
+    "commitlint",
+]
 ret_code = 0
 for commit_msg in commit_msgs:
     with NamedTemporaryFile(mode="w") as f:
