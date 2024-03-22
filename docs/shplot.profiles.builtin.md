@@ -162,8 +162,7 @@ Bases: `_ShWebScaleProfile`
 
 Scale profile for presentations.
 
-Sizes are based on a 48px font size, and will be scaled based on
-dpi.
+Sizes are based on 48px font size, and will be scaled based on dpi.
 
 
 * **Parameters**
