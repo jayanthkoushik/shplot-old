@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.2.0-0](https://github.com/jayanthkoushik/shplot-old/compare/v2.1.0...v2.2.0-0) (2024-03-25)
+
+
+### Features
+
+* do i need angular ([6f687f1](https://github.com/jayanthkoushik/shplot-old/commit/6f687f1d6ecde660b2b0f69b7a20ca25947b5502))
+
 ## [2.1.0](https://github.com/jayanthkoushik/shplot-old/compare/v2.1.0-1...v2.1.0) (2024-03-25)
 
 
