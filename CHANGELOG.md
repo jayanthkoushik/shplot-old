@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0](https://github.com/jayanthkoushik/shplot-old/compare/v2.1.0-1...v2.1.0) (2024-03-25)
+
+
+### Features
+
+* circle ([11facc4](https://github.com/jayanthkoushik/shplot-old/commit/11facc433e15bdfd2f2dc83c769e8daf2c104617))
+* commitlint rules ([2472460](https://github.com/jayanthkoushik/shplot-old/commit/24724608bb6691fd0bd955cf7dda8014067b1c85))
+* do pcs ([dfea94c](https://github.com/jayanthkoushik/shplot-old/commit/dfea94c412c96b7578589e3c9c9193f60f397630))
+* get commits ([0bd4a62](https://github.com/jayanthkoushik/shplot-old/commit/0bd4a62e166f34e0848f5c72522798dac4a59d3b))
+* maybe ([dd0208c](https://github.com/jayanthkoushik/shplot-old/commit/dd0208cc238f33bb36780574391ccce26b2efebc))
+* no ([caa3ed9](https://github.com/jayanthkoushik/shplot-old/commit/caa3ed92eee09750051293d8981f09f78049ce69))
+* prs ([6308f59](https://github.com/jayanthkoushik/shplot-old/commit/6308f5909e92af0cc90a7e0d2a0f84c9caf1b22f))
+* stuff ([4e02463](https://github.com/jayanthkoushik/shplot-old/commit/4e02463150668a5d6b53f85fe0a46396c3bc7b79))
+* verify commits ([7dbbc50](https://github.com/jayanthkoushik/shplot-old/commit/7dbbc502ca810b81fbbf7512e1cf57365db50c50))
+* yes ([d680d83](https://github.com/jayanthkoushik/shplot-old/commit/d680d835a9ffc5d42f20b623895a017b4c3e56c3))
+
+
+### Bug Fixes
+
+* damnit ([4e1c489](https://github.com/jayanthkoushik/shplot-old/commit/4e1c48901d14271eba5a17ebc519c4dde0cf9127))
+* oh ([d52a847](https://github.com/jayanthkoushik/shplot-old/commit/d52a847ffe112821d20fa4de26008ce4087ac0c6))
+* print errs ([98491e2](https://github.com/jayanthkoushik/shplot-old/commit/98491e2fd9bd192f7e1167c474420ac6616bb4c6))
+* quotes ([ad51a2b](https://github.com/jayanthkoushik/shplot-old/commit/ad51a2b1ae9337fa370713aebab58207335c4d92))
+* set token ([a14d71f](https://github.com/jayanthkoushik/shplot-old/commit/a14d71fb6b390a385ed95d358dfeec5fff334372))
+* triangle ([3a6a0c5](https://github.com/jayanthkoushik/shplot-old/commit/3a6a0c5d3ddfb820d28df39115d12fdc58729609))
+* wo ([88119da](https://github.com/jayanthkoushik/shplot-old/commit/88119da59052c6a481e0df71f8daa58c9432e38d))
+* yo ([359215a](https://github.com/jayanthkoushik/shplot-old/commit/359215a9b5eb50a1ad5b1e2a32a56446a45f379b))
+
 ## [2.1.0-1](https://github.com/jayanthkoushik/shplot-old/compare/v2.1.0-0...v2.1.0-1) (2024-03-21)
 
 
