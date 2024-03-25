@@ -813,8 +813,8 @@ ShPlot            (<span title="corgy._corgy.Corgy">Corgy</span>)
 
       <p>Wrapper around a <code>matplotlib</code> figure.</p>
 <p><code>ShPlot</code> represents a single figure, optionally associated with a
-<code>shplot</code> built-in profile
-(<a class="autorefs autorefs-internal" href="profiles/builtin/#shplot.profiles.builtin.SH_BUILTIN_PROFILES">SH_BUILTIN_PROFILES</a>).</p>
+built-in profile from
+<a class="autorefs autorefs-internal" href="profiles/builtin/#shplot.profiles.builtin.SH_BUILTIN_PROFILES">SH_BUILTIN_PROFILES</a>.</p>
 <p><code>ShPlot</code> inherits from <code>Corgy</code>, which provides a &ldquo;dataclass&rdquo; like
 interface. Public attributes are exposed as properties, and can also
 be set during initialization as keyword only arguments. All
@@ -912,7 +912,7 @@ Refer to the <a class="autorefs autorefs-external" href="https://jkoushik.me/cor
 
     <div class="doc doc-contents ">
 
-      <p>Plot save file (extension will be automatically added if not provided).</p>
+      <p>Plot save file (extension will be added if not provided).</p>
     </div>
 
   </div>
@@ -1061,7 +1061,7 @@ plot.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Close the figure.</p>
+      <p>Close the plot.</p>
 <p><code>TypeError</code> is raised if called on an unopened plot.</p>
 
     </div>
