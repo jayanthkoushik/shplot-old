@@ -80,7 +80,7 @@ jobs:
 
       - run: git push --follow-tags origin master
 
-      - run: npx conventional-github-releaser -p angular
+      - run: npx conventional-github-releaser
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.RELEASE_ACCESS_TOKEN }}
 
